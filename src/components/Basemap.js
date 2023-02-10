@@ -3,25 +3,25 @@ import {
   useJsApiLoader,
   GoogleMap,
   Marker,
-  InfoWindow,
+  InfoWindowF,
 } from "@react-google-maps/api";
-import InfoBox from "./InfoBox";
-// import { collection, query, where, onSnapshot } from 'firebase/firestore';
-// import db from '../firebase';
-import CustomMarker from "../images/cottage_FILL0_wght400_GRAD0_opsz48.svg";
+import InfoWindowContent from "./InfoWindowContent";
+import CustomMarker from "../images/cottage.svg";
 import redHome from "../images/redHome.svg";
 import yellowHome from "../images/yellowHome.svg";
 import greenHome from "../images/greenHome.svg";
+import church from "../images/church.svg";
+import school from "../images/school.svg";
+import agriculture from "../images/agriculture.svg";
+import water from "../images/water.svg";
+import medical from "../images/medical.svg";
 
 function Basemap(props) {
-  const [selectedHome, setSelectedHome] = useState("");
+  const [selectedHome, setSelectedHome] = useState()
+  const [center, setCenter] = useState({ lat: 15.76723133, lng: -96.639 });
+  const [mapStyling, setMapStyling] = useState('');
 
-  // console.log(props.householdState);
   const householdsAppState = props.householdState;
-
-  // householdsAppState.map((thing) =>
-  //   console.log(thing.data.family, thing.data.SDoH)
-  // );
 
   const { isLoaded } = useJsApiLoader({
     id: "175d9416e532b683",
@@ -29,14 +29,8 @@ function Basemap(props) {
   });
 
   const containerSize = {
-    width: "700px",
-    height: "500px",
-  };
-
-  const mapCenter = {
-    //Capilla de Agua Dulce (modified)
-    lat: 15.76723133,
-    lng: -96.639,
+    width: "850px",
+    height: "550px",
   };
 
   function markerColor(scaleValue) {
@@ -49,19 +43,50 @@ function Basemap(props) {
     } else {
       return CustomMarker;
     }
-  }
+  };
+
+  function otherBuilding(buildingType) {
+    if (buildingType === 'agriculturalLand') {
+      return agriculture;
+    } else if (buildingType === 'chapel') {
+      return church;
+    } else if (buildingType === 'clinic') {
+      return medical;
+    } else if (buildingType === 'school') {
+      return school;
+    } else if (buildingType === 'well1' || buildingType === 'well2') {
+      return water;
+    } else {
+      return CustomMarker;
+    }
+  };
+
+  function homeOrElse(scaleValue, buildingType) {
+    if (scaleValue) {
+      return markerColor(scaleValue);
+    } else if (buildingType) {
+      return otherBuilding(buildingType);
+    }
+  };
+
+  // function buildingType()
 
   return (
     isLoaded && (
       <>
         <GoogleMap
-          mapTypeId="satellite"
+          mapTypeId={mapStyling}
           mapContainerStyle={containerSize}
-          center={mapCenter}
-          zoom={15}
+          center={center}
+          zoom={17}
           options={{
             streetViewControl: false,
             mapTypeControl: false,
+            zoomControl: false
+          }}
+          onTilesLoaded={() => {
+            setCenter(null);
+            setMapStyling('satellite');
           }}
         >
           {householdsAppState.map((marker) => {
@@ -72,31 +97,29 @@ function Basemap(props) {
                   lat: marker.data.latitude,
                   lng: marker.data.longitude,
                 }}
-                options={{ icon: markerColor(marker.data.SDoH) }}
+                options={{icon: homeOrElse(marker.data.SDoH, marker.id)}}
                 onClick={() => {
-                  // setSelectedHome("");
                   setSelectedHome(marker);
-                  console.log(selectedHome);
+                  console.log(marker);
                 }}
-              >
-                <InfoBox homeInfo={marker}></InfoBox>;
-              </Marker>
+              ></Marker>
             );
-          })}
-          ;
-          {/* 
-                <InfoWindow
-                  position={{
-                    lat: selectedHome.data.latitude,
-                    lng: selectedHome.data.longitude
-                  }}
-                  onClose={setSelectedHome(null)}>
-                    <p>RANDOM TEXT</p>
-                  </InfoWindow> */}
-          {/* <InfoBox>
-                  <p>text</p>
-                <InfoBox/> */}{" "}
-          */}
+          })};
+
+          {selectedHome && (
+            <InfoWindowF
+              position={{
+                lat: selectedHome.data.latitude,
+                lng: selectedHome.data.longitude,
+              }}
+              options={{
+                pixelOffset: new window.google.maps.Size(0, -35),
+              }}
+              onCloseClick={() => setSelectedHome('')}
+            >
+              <InfoWindowContent currentHome={selectedHome}/>
+            </InfoWindowF>
+          )}
         </GoogleMap>
       </>
     )
@@ -104,8 +127,8 @@ function Basemap(props) {
   // );
 }
 
-Basemap.propTypes = {
-  // householdState: PropTypes.any.isRequired
-};
+// Basemap.propTypes = {
+//   householdState: PropTypes.object
+// };
 
 export default Basemap;

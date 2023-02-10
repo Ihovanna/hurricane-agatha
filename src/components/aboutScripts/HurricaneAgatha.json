@@ -1,0 +1,14 @@
+[
+    {
+        "stats": {
+            "category": 2,
+            "maxWindSpeed": "165 km/h",
+            "date": "May 30th, 2022",
+            "time": "2:30 p.m.",
+            "source1": "https://ciencia.nasa.gov/huracan-agatha-azota-mexico",
+            "source2": "https://wwwsmn.conagua.gob.mx/tools/DATA/Ciclones%20Tropicales/Ciclones/2022-Agatha.pdf"
+        },
+        "aboutText1": "Hurricane Agatha striked the southern Coast of Mexico in May 30th, 2022, touching land in the state of Oaxaca at 2:30 p.m. Central Time.",
+        "aboutText2": "It was categorized under category 2 of the Saffir-Simpson scale. It reached maximum speeds of 165 kilometers per hour (approx. 102 mph), at times increasing to 205 kilometers per hour (127 mph). "
+    }
+]

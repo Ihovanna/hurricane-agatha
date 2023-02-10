@@ -3,13 +3,16 @@ import { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import db from "./firebase";
 import Basemap from "./components/Basemap";
-import CollapsibleBox from './components/CollapsibleBox';
+import CollapseProject from './components/CollapsibleSections/CollapseProject';
+import CollapseHridayaYoga from './components/CollapsibleSections/CollapseHridayaYoga';
+
 
 function App() {
   const [households, setHouseholds] = useState([]);
 
   function getData() {
     const subjectData = collection(db, "Agua Dulce Households");
+
 
     getDocs(subjectData)
       .then((response) => {
@@ -22,6 +25,7 @@ function App() {
       .catch((error) => console.log(error.message));
   }
 
+
   useEffect(() => {
     getData();
   }, []);
@@ -29,6 +33,7 @@ function App() {
   useEffect(() => {
     // console.log(households);
     // console.log(...households);
+
   }, [households]);
 
 
@@ -37,13 +42,13 @@ function App() {
     <>
     <header className='page-header'>
         <h1>Hurricane Agatha 2022: Agua Dulce Damage Assessment</h1>
-        Community of Agua Dulce, Oaxaca, Mexico
+        Community of Agua Dulce, Santa María Tonameca municipality, Oaxaca, Mexico
       </header>
       <div className='page-body'><br/><br/>
         <Basemap householdState={households}></Basemap>
         <br/><br/>
-        <CollapsibleBox></CollapsibleBox><br/>
-        <CollapsibleBox></CollapsibleBox>
+        <CollapseProject label='About Agua Dulce'></CollapseProject><br/>
+        <CollapseHridayaYoga label='About Hridaya Yoga'></CollapseHridayaYoga>
       </div>
     </>
   )

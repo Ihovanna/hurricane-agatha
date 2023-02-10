@@ -1,9 +1,12 @@
 import Collapsible from 'react-collapsible';
+import './CollapsibleBox.css';
 
-function CollapsibleBox () {
+function CollapsibleBox (props) {
+
 
   return(
-    <Collapsible trigger="Start here">
+
+  <Collapsible className='collapsible-button' trigger={props.label}>
     <p>
       This is the collapsible content. It can be any element or React
       component you like.
@@ -13,6 +16,7 @@ function CollapsibleBox () {
       section!
     </p>
   </Collapsible>
+
   );
 };
 

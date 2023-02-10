@@ -1,0 +1,18 @@
+[
+    {"stats":
+        {
+            "municipality": "Santa María Tonameca",
+            "state": "Oaxaca",
+            "country": "Mexico",
+            "population2020": 93,
+            "totalMen": 48,
+            "totalWomen": 45,
+            "adults15to59": 46,
+            "children0to14": 43,
+            "eldersOver60": 4,
+            "indigenousPercent": 100,
+            "source": "https://mexico.pueblosamerica.com/i/agua-dulce-37/",
+        }},
+
+    {"aboutText1": "A"}
+]
