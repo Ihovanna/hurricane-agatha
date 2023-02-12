@@ -19,7 +19,8 @@ function InfoWindowContent(props) {
         return props.currentHome.data.buildingType
     } else if (props.currentHome.id === 'well1' || props.currentHome.id === 'well2') {
         return props.currentHome.data.buildingType
-    } else if (props.currentHome.id === '1' ||
+    
+      } else if (props.currentHome.id === '1' ||
               props.currentHome.id === '2' || 
               props.currentHome.id === '3' ||
               props.currentHome.id === '4' ||
@@ -50,7 +51,6 @@ function InfoWindowContent(props) {
               props.currentHome.id === '29' ||
               props.currentHome.id === '30' ||
               props.currentHome.id === '31' ) {
-
         return (
           <div id="household-info">
             <h2 className="window-title">

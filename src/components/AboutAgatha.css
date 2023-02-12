@@ -1,0 +1,18 @@
+#about-agatha {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: rgba(248, 248, 248, 0.817);
+    width: 200px;
+    height: 550px;
+    text-align: center;
+    font-size: 15px;
+    color:rgb(121, 131, 190);
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+div {
+    align-items: center;
+}

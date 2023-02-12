@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" height="30" width="30" fill="khaki">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" height="33" width="33" fill="lightsalmon">
         <defs>
         <filter id="f4" x="0" y="0" width="200%" height="200%">
             <feOffset result="offOut" in="SourceGraphic" dx="15" dy="25" />

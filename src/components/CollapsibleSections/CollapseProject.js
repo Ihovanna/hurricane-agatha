@@ -3,7 +3,17 @@ import "./CollapsibleBox.css";
 
 function CollapseProject(props) {
   return (
-    <Collapsible className="collapsible-button" trigger={props.label}>
+    <Collapsible
+      className="collapsible-button"
+      trigger={props.label}
+      triggerStyle={{
+        color: "rgb(108, 119, 185)",
+        fontSize: 20,
+        textTransform: "initial"
+      }}
+      open={false}
+      transitionTime={350}
+    >
       <p>
         This project was led by Hridaya Yoga's Community team. Employees and
         volunteers of the center gathered to visit several remote communities

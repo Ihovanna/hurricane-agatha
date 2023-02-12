@@ -1,5 +1,22 @@
-.collapsible-button {
-    background-color: rgb(238, 237, 237);
-    padding-top: 7px;
-    padding-bottom: 7px;
+.Collapsible {
+    max-width: 1080px;
+}
+
+.Collapsible__trigger {
+    padding-left: 10px;
+    padding-right: 82%;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background-color: rgb(239, 239, 239);
+}
+
+.Collapsible__contentOuter {
+    color: rgb(50, 50, 50);
+    margin: 15px;
+    width: 94%;
+}
+
+.Collapsible__contentInner {
+    font-family:Arial, Helvetica, sans-serif;
+    /* background-color: greenyellow; */
 }

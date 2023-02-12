@@ -17,9 +17,9 @@ import water from "../images/water.svg";
 import medical from "../images/medical.svg";
 
 function Basemap(props) {
-  const [selectedHome, setSelectedHome] = useState()
+  const [selectedHome, setSelectedHome] = useState();
   const [center, setCenter] = useState({ lat: 15.76723133, lng: -96.639 });
-  const [mapStyling, setMapStyling] = useState('');
+  const [mapStyling, setMapStyling] = useState("");
 
   const householdsAppState = props.householdState;
 
@@ -43,23 +43,23 @@ function Basemap(props) {
     } else {
       return CustomMarker;
     }
-  };
+  }
 
   function otherBuilding(buildingType) {
-    if (buildingType === 'agriculturalLand') {
+    if (buildingType === "agriculturalLand") {
       return agriculture;
-    } else if (buildingType === 'chapel') {
+    } else if (buildingType === "chapel") {
       return church;
-    } else if (buildingType === 'clinic') {
+    } else if (buildingType === "clinic") {
       return medical;
-    } else if (buildingType === 'school') {
+    } else if (buildingType === "school") {
       return school;
-    } else if (buildingType === 'well1' || buildingType === 'well2') {
+    } else if (buildingType === "well1" || buildingType === "well2") {
       return water;
     } else {
       return CustomMarker;
     }
-  };
+  }
 
   function homeOrElse(scaleValue, buildingType) {
     if (scaleValue) {
@@ -67,9 +67,7 @@ function Basemap(props) {
     } else if (buildingType) {
       return otherBuilding(buildingType);
     }
-  };
-
-  // function buildingType()
+  }
 
   return (
     isLoaded && (
@@ -82,11 +80,21 @@ function Basemap(props) {
           options={{
             streetViewControl: false,
             mapTypeControl: false,
-            zoomControl: false
+            zoomControl: false,
+            maxZoom: 20,
+            minZoom: 15,
+            restriction: {
+              latLngBounds: {
+                north: 15.774,
+                south: 15.7599,
+                east: -96.629,
+                west: -96.652
+              }
+            }
           }}
           onTilesLoaded={() => {
             setCenter(null);
-            setMapStyling('satellite');
+            setMapStyling("satellite");
           }}
         >
           {householdsAppState.map((marker) => {
@@ -97,15 +105,15 @@ function Basemap(props) {
                   lat: marker.data.latitude,
                   lng: marker.data.longitude,
                 }}
-                options={{icon: homeOrElse(marker.data.SDoH, marker.id)}}
+                options={{ icon: homeOrElse(marker.data.SDoH, marker.id) }}
                 onClick={() => {
                   setSelectedHome(marker);
                   console.log(marker);
                 }}
               ></Marker>
             );
-          })};
-
+          })}
+          ;
           {selectedHome && (
             <InfoWindowF
               position={{
@@ -115,9 +123,9 @@ function Basemap(props) {
               options={{
                 pixelOffset: new window.google.maps.Size(0, -35),
               }}
-              onCloseClick={() => setSelectedHome('')}
+              onCloseClick={() => setSelectedHome("")}
             >
-              <InfoWindowContent currentHome={selectedHome}/>
+              <InfoWindowContent currentHome={selectedHome} />
             </InfoWindowF>
           )}
         </GoogleMap>
