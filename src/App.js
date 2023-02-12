@@ -111,7 +111,10 @@ function App() {
             </a>
           </ul>
         </div>
-        <small>A project by Ihovanna Huezo. All intellectual content is property of Hridaya Yoga.</small>
+        <small>
+          All damage assessment data is intellectual property of Hridaya Yoga
+          <br/>A project by Ihovanna Huezo
+        </small>
       </footer>
 
     </div>
