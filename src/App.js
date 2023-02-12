@@ -37,6 +37,7 @@ function App() {
 
   return (
     <div className="container">
+
       <div className="page-header ">
         <h1>Hurricane Agatha 2022: Agua Dulce Damage Assessment</h1>
         <div id="sub-title">
@@ -44,8 +45,10 @@ function App() {
         Mexico
         </div>
       </div>
+
       <br />
       <br />
+
       <div className="page-body">
         <br />
         <br />
@@ -54,13 +57,10 @@ function App() {
         <br />
         <br />
       </div>
+
       <br />
       <br />
-      <div className='info-videos'>
-        <ReactPlayer url='https://www.youtube.com/watch?v=VPCEXVVzWMY&embeds_euri=https%3A%2F%2Fhridaya-yoga.com%2F&embeds_origin=https%3A%2F%2Fhridaya-yoga.com&source_ve_path=MjM4NTE&feature=emb_title'></ReactPlayer>
-      </div>
-      <br />
-      <br />
+
       <div className="all-collapsibles">
         <CollapseProject
           className="about-project"
@@ -75,6 +75,45 @@ function App() {
           label="About Hridaya Yoga"
         ></CollapseHridayaYoga>
       </div>
+
+      <div className='info-videos'>
+        <ReactPlayer 
+          url='https://www.youtube.com/watch?v=VPCEXVVzWMY&embeds_euri=https%3A%2F%2Fhridaya-yoga.com%2F&embeds_origin=https%3A%2F%2Fhridaya-yoga.com&source_ve_path=MjM4NTE&feature=emb_title'
+          width='530px'
+          height='298px'/>
+        <ReactPlayer 
+          url='https://www.youtube.com/watch?v=IPFdlfSO5EA&embeds_euri=https%3A%2F%2Fhridaya-yoga.com%2F&embeds_origin=https%3A%2F%2Fhridaya-yoga.com&source_ve_path=MzY5MjU&feature=emb_imp_woyt'
+          width='530px'
+          height='298px'/>
+      </div>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <footer className='footer'>
+        <div className='more-info'>
+          <ul>
+            <a href="https://hridaya-yoga.com/">
+              <b>Hridaya Yoga's site</b>
+            </a>
+          </ul>
+          <ul>
+            <a href="https://hridaya-yoga.com/community-development/">
+              <b>Community Development Department</b>
+            </a>
+          </ul>
+          <ul>
+            <a href="https://hridaya-yoga.com/hurricane-agatha/"> 
+              <b>United for Oaxaca campaign</b>
+            </a>
+          </ul>
+        </div>
+        <small>A project by Ihovanna Huezo. All intellectual content is property of Hridaya Yoga.</small>
+      </footer>
+
     </div>
   );
 }

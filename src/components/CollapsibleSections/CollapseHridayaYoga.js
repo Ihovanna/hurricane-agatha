@@ -23,14 +23,10 @@ function CollapseHridayaYoga (props) {
     <p>
       Most recently, Mexico's center has been in the process of developing its Community development
       Department, as the center is located in the heart of Mazunte. This community has been very 
-      welcoming and nurtutring to the schools and its visitors from all over the world.
+      welcoming and nurtutring to the school and its visitors from all over the world.
     </p>
     <p>
-      For more information about Hridaya Yoga, you can visit <a href="https://hridaya-yoga.com/">hridaya-yoga.com</a>,
-      for further information about the Community Development Department, you can visit 
-      <a href="https://hridaya-yoga.com/community-development/">hridaya-yoga.com/community-development</a>, 
-      and for more information about Hridaya Yoga's United for Oaxaca relief campain, please visit 
-      <a href="https://hridaya-yoga.com/hurricane-agatha/"> hridaya-yoga.com/hurricane-agatha</a>.
+      For more information about Hridaya Yoga visit the links at the bottom of the page.
     </p>
   </Collapsible>
 
