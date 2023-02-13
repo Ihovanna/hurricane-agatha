@@ -8,6 +8,7 @@ import AboutAgatha from "./components/AboutAgatha";
 import CollapseProject from "./components/CollapsibleSections/CollapseProject";
 import CollapseHridayaYoga from "./components/CollapsibleSections/CollapseHridayaYoga";
 import CollapseAguaDulce from "./components/CollapsibleSections/CollapseAguaDulce";
+import VscChevronRight from "react-icons";
 
 function App() {
   const [households, setHouseholds] = useState([]);

@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "hurricane-agatha",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

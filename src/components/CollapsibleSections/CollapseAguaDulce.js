@@ -1,8 +1,8 @@
 import Collapsible from 'react-collapsible';
 import './CollapsibleBox.css';
+import {VscChevronRight} from "react-icons/vsc";
 
 function CollapsibleBox (props) {
-
 
   return(
 
