@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "build/hurricane-agatha",
+    "public": "",
     "ignore": [
       "firebase.json",
       "**/.*",
